@@ -1,316 +1,835 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Financiamento de Veículos | Consultor Mateus Gomes</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Financiamento de Veículos | Consultor Premium Mateus Gomes</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     :root {
-      --primary: #003366;
-      --secondary: #FF6B00;
-      --accent: #25D366;
-      --light: #f8f9fa;
-      --dark: #212529;
-      --gray: #6c757d;
+      --primary: #D50000;
+      --primary-dark: #B71C1C;
+      --primary-light: #FF5252;
+      --secondary: #212121;
+      --accent: #FFD600;
+      --light: #FFFFFF;
+      --dark: #000000;
+      --gray: #757575;
+      --light-gray: #f5f5f5;
+    }
+    
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
     }
     
     body {
-      margin: 0;
       font-family: 'Montserrat', sans-serif;
-      background: var(--light);
-      color: var(--dark);
-      line-height: 1.6;
+      background-color: var(--light);
+      color: var(--secondary);
+      line-height: 1.7;
+      overflow-x: hidden;
     }
-
-    header {
-      background: var(--primary);
-      color: white;
-      padding: 1.5rem 1rem;
-      text-align: center;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    
+    /* Header Sticky */
+    .top-bar {
+      background-color: var(--dark);
+      color: var(--light);
+      padding: 0.8rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 20px rgba(0, 0, 0, 0.15);
     }
-
-    header h1 {
-      margin: 0;
-      font-size: 1.8rem;
-      font-weight: 700;
+    
+    .top-bar-container {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
     }
-
-    header p {
-      margin: 0.5rem 0 0;
-      font-size: 1rem;
-      font-weight: 400;
-      opacity: 0.9;
-    }
-
-    .hero {
-      background: linear-gradient(rgba(0, 51, 102, 0.7), rgba(0, 51, 102, 0.7)), 
-                  url('https://images.unsplash.com/photo-1494972308805-463bc619d34e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1473&q=80') no-repeat center center;
-      background-size: cover;
-      height: 300px;
+    
+    .top-bar-contact {
       display: flex;
       align-items: center;
-      justify-content: center;
+    }
+    
+    .whatsapp-btn {
+      background-color: var(--primary);
       color: white;
-      text-align: center;
-      padding: 0 1rem;
+      padding: 0.6rem 1.2rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      display: flex;
+      align-items: center;
+      transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 0 3px 10px rgba(213, 0, 0, 0.3);
     }
-
-    .hero-content h2 {
-      font-size: 2.2rem;
-      margin-bottom: 1rem;
-      text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+    
+    .whatsapp-btn:hover {
+      background-color: var(--primary-dark);
+      transform: translateY(-2px);
+      box-shadow: 0 5px 15px rgba(213, 0, 0, 0.4);
     }
-
-    .hero-content p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 0 auto;
-      text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+    
+    .whatsapp-btn i {
+      margin-right: 8px;
+      font-size: 1.1rem;
     }
-
-    .container {
-      padding: 3rem 1.5rem;
-      max-width: 1000px;
-      margin: auto;
-    }
-
-    .intro {
-      text-align: center;
-      margin-bottom: 3rem;
-    }
-
-    .intro h2 {
-      color: var(--primary);
-      font-size: 1.8rem;
-      margin-bottom: 1.5rem;
+    
+    /* Hero Section */
+    .hero {
       position: relative;
-      display: inline-block;
+      height: 90vh;
+      min-height: 600px;
+      background: linear-gradient(135deg, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0.4) 100%), 
+                  url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1583&q=80') no-repeat center center;
+      background-size: cover;
+      display: flex;
+      align-items: center;
+      overflow: hidden;
     }
-
-    .intro h2:after {
+    
+    .hero::before {
       content: '';
       position: absolute;
-      width: 50%;
-      height: 3px;
-      background: var(--secondary);
-      bottom: -10px;
-      left: 25%;
-    }
-
-    .intro p {
-      font-size: 1.1rem;
-      color: var(--gray);
-      max-width: 700px;
-      margin: 0 auto 2rem;
-    }
-
-    .benefits {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 2rem;
-      margin: 3rem 0;
-    }
-
-    .benefit-card {
-      background: white;
-      border-radius: 8px;
-      padding: 1.5rem;
+      bottom: 0;
+      left: 0;
       width: 100%;
-      max-width: 300px;
-      box-shadow: 0 5px 15px rgba(0,0,0,0.05);
-      transition: transform 0.3s, box-shadow 0.3s;
+      height: 100px;
+      background: linear-gradient(to bottom, transparent 0%, var(--light) 100%);
+      z-index: 1;
     }
-
-    .benefit-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+    
+    .hero-content {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 2;
+      color: var(--light);
     }
-
-    .benefit-card i {
-      font-size: 2rem;
-      color: var(--secondary);
-      margin-bottom: 1rem;
-      display: block;
+    
+    .hero-content h1 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+      text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
     }
-
-    .benefit-card h3 {
-      color: var(--primary);
-      margin-top: 0;
+    
+    .hero-content h1 span {
+      color: var(--primary-light);
     }
-
-    .cta-section {
-      background: var(--primary);
-      color: white;
-      padding: 3rem 1.5rem;
-      text-align: center;
-      border-radius: 8px;
-      margin: 3rem 0;
-    }
-
-    .cta-section h2 {
-      margin-top: 0;
-      font-size: 1.8rem;
-    }
-
-    .cta-section p {
+    
+    .hero-content p {
+      font-size: 1.3rem;
       max-width: 600px;
-      margin: 0 auto 2rem;
+      margin-bottom: 2.5rem;
       opacity: 0.9;
     }
-
+    
     .cta-button {
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      background: var(--accent);
-      color: white;
-      padding: 15px 30px;
+      background-color: var(--primary);
+      color: var(--light);
+      padding: 1rem 2.5rem;
       font-size: 1.1rem;
-      font-weight: 600;
+      font-weight: 700;
       border-radius: 50px;
       text-decoration: none;
-      transition: all 0.3s;
-      box-shadow: 0 4px 15px rgba(37, 211, 102, 0.3);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 0 4px 20px rgba(213, 0, 0, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
     }
-
+    
     .cta-button:hover {
-      background: #128c7e;
-      transform: translateY(-2px);
-      box-shadow: 0 6px 20px rgba(37, 211, 102, 0.4);
+      background-color: var(--primary-dark);
+      transform: translateY(-3px) scale(1.02);
+      box-shadow: 0 8px 25px rgba(213, 0, 0, 0.5);
     }
-
+    
     .cta-button i {
       margin-right: 10px;
       font-size: 1.2rem;
     }
-
-    footer {
-      background: var(--dark);
-      color: white;
+    
+    /* Features Section */
+    .features {
+      padding: 6rem 0;
+      background-color: var(--light);
+      position: relative;
+    }
+    
+    .section-title {
       text-align: center;
-      padding: 2rem 1rem;
-      margin-top: 3rem;
+      margin-bottom: 4rem;
     }
-
-    .footer-content {
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-
-    .contact-info {
-      margin: 1.5rem 0;
-    }
-
-    .contact-info a {
-      color: white;
-      text-decoration: none;
+    
+    .section-title h2 {
+      font-size: 2.5rem;
+      color: var(--secondary);
+      position: relative;
       display: inline-block;
-      margin: 0 10px;
-      transition: color 0.3s;
+      margin-bottom: 1.5rem;
     }
-
-    .contact-info a:hover {
+    
+    .section-title h2::after {
+      content: '';
+      position: absolute;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary);
+      bottom: -10px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .section-title p {
+      color: var(--gray);
+      max-width: 700px;
+      margin: 0 auto;
+      font-size: 1.1rem;
+    }
+    
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .feature-card {
+      background-color: var(--light);
+      border-radius: 12px;
+      padding: 2.5rem 2rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      text-align: center;
+      border-top: 4px solid var(--primary);
+    }
+    
+    .feature-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    }
+    
+    .feature-icon {
+      width: 80px;
+      height: 80px;
+      background-color: rgba(213, 0, 0, 0.1);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: var(--primary);
+      font-size: 2rem;
+    }
+    
+    .feature-card h3 {
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+      color: var(--secondary);
+    }
+    
+    .feature-card p {
+      color: var(--gray);
+      font-size: 1rem;
+    }
+    
+    /* Stats Section */
+    .stats {
+      background-color: var(--primary);
+      color: var(--light);
+      padding: 5rem 0;
+      position: relative;
+    }
+    
+    .stats::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 20px;
+      background: linear-gradient(to bottom, var(--light) 0%, transparent 100%);
+    }
+    
+    .stats-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 3rem;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      text-align: center;
+    }
+    
+    .stat-item h3 {
+      font-size: 3.5rem;
+      font-weight: 800;
+      margin-bottom: 0.5rem;
       color: var(--accent);
     }
-
-    .copyright {
-      opacity: 0.8;
+    
+    .stat-item p {
+      font-size: 1.1rem;
+      opacity: 0.9;
+      font-weight: 500;
+    }
+    
+    /* Testimonials */
+    .testimonials {
+      padding: 6rem 0;
+      background-color: var(--light-gray);
+    }
+    
+    .testimonials-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+    
+    .testimonial-card {
+      background-color: var(--light);
+      border-radius: 12px;
+      padding: 2.5rem;
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.05);
+      margin: 2rem 0;
+      position: relative;
+    }
+    
+    .testimonial-card::before {
+      content: '"';
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-size: 5rem;
+      color: rgba(213, 0, 0, 0.1);
+      font-family: Georgia, serif;
+      line-height: 1;
+    }
+    
+    .testimonial-content {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 1.5rem;
+      font-style: italic;
+      color: var(--secondary);
+    }
+    
+    .testimonial-author {
+      display: flex;
+      align-items: center;
+    }
+    
+    .author-avatar {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background-color: var(--primary-light);
+      margin-right: 1rem;
+      overflow: hidden;
+    }
+    
+    .author-info h4 {
+      color: var(--primary);
+      margin-bottom: 0.2rem;
+    }
+    
+    .author-info p {
+      color: var(--gray);
       font-size: 0.9rem;
+    }
+    
+    /* CTA Section */
+    .cta-section {
+      padding: 6rem 0;
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: var(--light);
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .cta-section::before {
+      content: '';
+      position: absolute;
+      top: -50px;
+      left: 0;
+      width: 100%;
+      height: 100px;
+      background-color: var(--light-gray);
+      transform: skewY(-3deg);
+    }
+    
+    .cta-container {
+      max-width: 800px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .cta-section h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+    }
+    
+    .cta-section p {
+      font-size: 1.2rem;
+      margin-bottom: 2.5rem;
+      opacity: 0.9;
+    }
+    
+    .cta-button-large {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background-color: var(--accent);
+      color: var(--dark);
+      padding: 1.2rem 3rem;
+      font-size: 1.2rem;
+      font-weight: 700;
+      border-radius: 50px;
+      text-decoration: none;
+      transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+      box-shadow: 0 5px 25px rgba(255, 214, 0, 0.4);
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+    
+    .cta-button-large:hover {
+      background-color: var(--light);
+      transform: translateY(-3px) scale(1.03);
+      box-shadow: 0 10px 30px rgba(255, 214, 0, 0.5);
+    }
+    
+    .cta-button-large i {
+      margin-right: 12px;
+      font-size: 1.3rem;
+    }
+    
+    /* Footer */
+    footer {
+      background-color: var(--secondary);
+      color: var(--light);
+      padding: 4rem 0 2rem;
+    }
+    
+    .footer-container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 2rem;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 3rem;
+    }
+    
+    .footer-logo h3 {
+      font-size: 1.8rem;
+      margin-bottom: 1rem;
+      color: var(--light);
+    }
+    
+    .footer-logo h3 span {
+      color: var(--primary-light);
+    }
+    
+    .footer-logo p {
+      opacity: 0.7;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+    
+    .footer-contact h4, .footer-links h4 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 10px;
+    }
+    
+    .footer-contact h4::after, .footer-links h4::after {
+      content: '';
+      position: absolute;
+      width: 40px;
+      height: 3px;
+      background-color: var(--primary);
+      bottom: 0;
+      left: 0;
+    }
+    
+    .contact-info {
+      margin-bottom: 1.5rem;
+    }
+    
+    .contact-info p {
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.8rem;
+      opacity: 0.8;
+    }
+    
+    .contact-info i {
+      margin-right: 10px;
+      color: var(--primary-light);
+      width: 20px;
+      text-align: center;
+    }
+    
+    .footer-links ul {
+      list-style: none;
+    }
+    
+    .footer-links li {
+      margin-bottom: 0.8rem;
+    }
+    
+    .footer-links a {
+      color: var(--light);
+      text-decoration: none;
+      opacity: 0.8;
+      transition: opacity 0.3s;
+      display: flex;
+      align-items: center;
+    }
+    
+    .footer-links a:hover {
+      opacity: 1;
+      color: var(--primary-light);
+    }
+    
+    .footer-links a i {
+      margin-right: 8px;
+      font-size: 0.8rem;
+    }
+    
+    .social-links {
+      display: flex;
+      gap: 1rem;
       margin-top: 1.5rem;
     }
-
-    @media (max-width: 768px) {
-      .hero {
-        height: 250px;
+    
+    .social-links a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 40px;
+      height: 40px;
+      background-color: rgba(255, 255, 255, 0.1);
+      border-radius: 50%;
+      color: var(--light);
+      transition: all 0.3s;
+    }
+    
+    .social-links a:hover {
+      background-color: var(--primary);
+      transform: translateY(-3px);
+    }
+    
+    .copyright {
+      text-align: center;
+      padding-top: 3rem;
+      margin-top: 3rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      opacity: 0.7;
+      font-size: 0.9rem;
+    }
+    
+    /* Animations */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    
+    .animate {
+      animation: fadeInUp 0.8s ease-out forwards;
+    }
+    
+    .delay-1 {
+      animation-delay: 0.2s;
+    }
+    
+    .delay-2 {
+      animation-delay: 0.4s;
+    }
+    
+    .delay-3 {
+      animation-delay: 0.6s;
+    }
+    
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .hero-content h1 {
+        font-size: 2.8rem;
       }
       
-      .hero-content h2 {
-        font-size: 1.8rem;
+      .section-title h2 {
+        font-size: 2.2rem;
+      }
+    }
+    
+    @media (max-width: 768px) {
+      .hero {
+        height: auto;
+        min-height: 500px;
+        padding: 6rem 0;
+      }
+      
+      .hero-content h1 {
+        font-size: 2.3rem;
       }
       
       .hero-content p {
-        font-size: 1rem;
+        font-size: 1.1rem;
       }
       
-      .benefit-card {
-        max-width: 100%;
+      .section-title h2 {
+        font-size: 2rem;
+      }
+      
+      .stats-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+      
+      .cta-section h2 {
+        font-size: 2rem;
+      }
+    }
+    
+    @media (max-width: 576px) {
+      .top-bar-container {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
+      
+      .hero-content h1 {
+        font-size: 2rem;
+      }
+      
+      .stats-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+      
+      .feature-card {
+        padding: 2rem 1.5rem;
+      }
+      
+      .footer-container {
+        grid-template-columns: 1fr;
       }
     }
   </style>
 </head>
 <body>
 
-  <header>
-    <h1>Consultor Executivo Mateus Gomes</h1>
-    <p>Especialista em Financiamento de Veículos com as Melhores Taxas do Mercado</p>
-  </header>
-
-  <div class="hero">
-    <div class="hero-content">
-      <h2>Financiamento de Veículos sem Burocracia</h2>
-      <p>Realize o sonho do seu carro novo ou usado com condições exclusivas e atendimento personalizado</p>
+  <!-- Top Bar with WhatsApp Button -->
+  <div class="top-bar">
+    <div class="top-bar-container">
+      <div class="top-bar-contact">
+        <i class="fas fa-phone-alt"></i>
+        <span style="margin-left: 8px;">(92) 99506-4836</span>
+      </div>
+      <a href="https://wa.me/5592995064836?text=Olá%20Mateus,%20quero%20simular%20um%20financiamento!" class="whatsapp-btn">
+        <i class="fab fa-whatsapp"></i> Fale pelo WhatsApp
+      </a>
     </div>
   </div>
 
-  <section class="container">
-    <div class="intro">
-      <h2>Soluções Financeiras para seu Veículo</h2>
-      <p>Como consultor especializado, ofereço as melhores condições de financiamento com transparência e agilidade. Trabalho com os principais bancos e instituições financeiras para garantir a proposta ideal para você.</p>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="hero-content animate">
+      <h1>Financiamento de <span>Veículos</span> com as Melhores Condições</h1>
+      <p>Taxas especiais, aprovação rápida e atendimento personalizado para você adquirir o carro dos seus sonhos.</p>
       <a href="https://wa.me/5592995064836?text=Olá%20Mateus,%20quero%20simular%20um%20financiamento!" class="cta-button">
-        <i class="fab fa-whatsapp"></i> Simular pelo WhatsApp
+        <i class="fab fa-whatsapp"></i> Simular Agora
       </a>
     </div>
+  </section>
 
-    <div class="benefits">
-      <div class="benefit-card">
-        <i class="fas fa-percentage"></i>
-        <h3>Taxas Competitivas</h3>
-        <p>Negociação direta com bancos para obter as menores taxas de juros do mercado.</p>
+  <!-- Features Section -->
+  <section class="features">
+    <div class="section-title animate">
+      <h2>Por que escolher nosso serviço?</h2>
+      <p>Somos especialistas em financiamento de veículos com mais de 10 anos de experiência no mercado</p>
+    </div>
+    
+    <div class="features-grid">
+      <div class="feature-card animate delay-1">
+        <div class="feature-icon">
+          <i class="fas fa-percentage"></i>
+        </div>
+        <h3>Taxas Reduzidas</h3>
+        <p>Negociamos diretamente com os bancos para oferecer as menores taxas de juros do mercado financeiro.</p>
       </div>
       
-      <div class="benefit-card">
-        <i class="fas fa-clock"></i>
-        <h3>Processo Ágil</h3>
-        <p>Análise de crédito rápida e liberação em até 48 horas para clientes aprovados.</p>
+      <div class="feature-card animate delay-2">
+        <div class="feature-icon">
+          <i class="fas fa-bolt"></i>
+        </div>
+        <h3>Rapidez</h3>
+        <p>Processo ágil com análise de crédito em até 24h e liberação do veículo em 48h para aprovados.</p>
       </div>
       
-      <div class="benefit-card">
-        <i class="fas fa-hand-holding-usd"></i>
+      <div class="feature-card animate delay-3">
+        <div class="feature-icon">
+          <i class="fas fa-hand-holding-usd"></i>
+        </div>
         <h3>Condições Flexíveis</h3>
-        <p>Prazos de até 72 meses e parcelas que cabem no seu orçamento.</p>
+        <p>Prazos de até 84 meses e parcelas que cabem no seu orçamento, sem entrada ou com entrada reduzida.</p>
       </div>
     </div>
+  </section>
 
-    <div class="cta-section">
-      <h2>Pronto para dar o próximo passo?</h2>
-      <p>Entre em contato agora mesmo e descubra como posso ajudar você a adquirir o veículo dos seus sonhos com as melhores condições do mercado.</p>
-      <a href="https://wa.me/5592995064836?text=Olá%20Mateus,%20quero%20simular%20um%20financiamento!" class="cta-button">
+  <!-- Stats Section -->
+  <section class="stats">
+    <div class="stats-grid">
+      <div class="stat-item animate">
+        <h3>+500</h3>
+        <p>Clientes Satisfeitos</p>
+      </div>
+      <div class="stat-item animate delay-1">
+        <h3>R$50M</h3>
+        <p>Em Financiamentos</p>
+      </div>
+      <div class="stat-item animate delay-2">
+        <h3>24h</h3>
+        <p>Análise Rápida</p>
+      </div>
+      <div class="stat-item animate delay-3">
+        <h3>98%</h3>
+        <p>Taxa de Aprovação</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials Section -->
+  <section class="testimonials">
+    <div class="testimonials-container">
+      <div class="section-title animate">
+        <h2>O que nossos clientes dizem</h2>
+        <p>Depoimentos reais de pessoas que realizaram o sonho do carro novo</p>
+      </div>
+      
+      <div class="testimonial-card animate delay-1">
+        <div class="testimonial-content">
+          <p>O Mateus conseguiu condições que eu não achava em lugar nenhum. Taxa 30% menor que as outras propostas que recebi e o processo foi super rápido. Recomendo demais o trabalho dele!</p>
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar">
+            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Carlos Silva" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="author-info">
+            <h4>Carlos Silva</h4>
+            <p>Comprou um HB20 2023</p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="testimonial-card animate delay-2">
+        <div class="testimonial-content">
+          <p>Nunca imaginei que conseguiria financiar um carro 0km com meu score. O Mateus explicou tudo, me orientou e conseguiu a aprovação em menos de 2 dias. Serviço de excelência!</p>
+        </div>
+        <div class="testimonial-author">
+          <div class="author-avatar">
+            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Ana Oliveira" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="author-info">
+            <h4>Ana Oliveira</h4>
+            <p>Comprou um Onix Plus 0km</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="cta-section">
+    <div class="cta-container animate">
+      <h2>Pronto para realizar seu sonho?</h2>
+      <p>Entre em contato agora mesmo e descubra como podemos ajudar você a adquirir o veículo perfeito com as melhores condições do mercado.</p>
+      <a href="https://wa.me/5592995064836?text=Olá%20Mateus,%20quero%20simular%20um%20financiamento!" class="cta-button-large">
         <i class="fab fa-whatsapp"></i> Falar com Consultor
       </a>
     </div>
   </section>
 
+  <!-- Footer -->
   <footer>
-    <div class="footer-content">
-      <h3>Consultor Executivo Mateus Gomes</h3>
-      <div class="contact-info">
-        <a href="https://wa.me/5592995064836" target="_blank">
-          <i class="fab fa-whatsapp"></i> (92) 99506-4836
-        </a>
-        <a href="mailto:contato@mateusgomesfinance.com">
-          <i class="fas fa-envelope"></i> contato@mateusgomesfinance.com
-        </a>
+    <div class="footer-container">
+      <div class="footer-logo">
+        <h3>Mateus <span>Gomes</span></h3>
+        <p>Consultor especializado em financiamento de veículos com atendimento personalizado e soluções financeiras sob medida para cada cliente.</p>
+        <div class="social-links">
+          <a href="#"><i class="fab fa-instagram"></i></a>
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+        </div>
       </div>
-      <div class="copyright">
-        © 2023 - Mateus Gomes | Consultor Executivo em Financiamento de Veículos<br>
-        Todos os direitos reservados
+      
+      <div class="footer-contact">
+        <h4>Contato</h4>
+        <div class="contact-info">
+          <p><i class="fas fa-phone-alt"></i> (92) 99506-4836</p>
+          <p><i class="fab fa-whatsapp"></i> WhatsApp: (92) 99506-4836</p>
+          <p><i class="fas fa-envelope"></i> contato@mateusgomesfinance.com</p>
+          <p><i class="fas fa-map-marker-alt"></i> Manaus - AM</p>
+        </div>
       </div>
+      
+      <div class="footer-links">
+        <h4>Links Rápidos</h4>
+        <ul>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Financiamento Novo</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Financiamento Usado</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Refinanciamento</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Portabilidade</a></li>
+          <li><a href="#"><i class="fas fa-chevron-right"></i> Consórcio</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="copyright">
+      <p>&copy; 2023 Mateus Gomes Consultoria - Todos os direitos reservados</p>
     </div>
   </footer>
 
+  <script>
+    // Simple animation trigger on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      const animateElements = document.querySelectorAll('.animate');
+      
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = 1;
+          }
+        });
+      }, { threshold: 0.1 });
+      
+      animateElements.forEach(el => {
+        el.style.opacity = 0;
+        observer.observe(el);
+      });
+    });
+  </script>
 </body>
 </html>
